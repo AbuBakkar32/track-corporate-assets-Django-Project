@@ -21,4 +21,5 @@ import corporateAssetsTracker
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tracker/', include('corporateAssetsTracker.urls')),
+    path('api/v1/', include('corporateAssetsTracker.api.urls')),
 ]

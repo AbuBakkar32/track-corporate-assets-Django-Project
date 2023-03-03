@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from corporateAssetsTracker.models import Company
+from corporateAssetsTracker.models import Company, Employee, Device, DeviceLog
 
 
 class CompanySerializer(serializers.ModelSerializer):
