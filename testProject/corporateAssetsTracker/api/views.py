@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import Company, Employee, Device, DeviceLog
-from .serializers import CompanySerializer, EmployeeSerializer, DeviceSerializer, DeviceLogSerializer
+from corporateAssetsTracker.models import Company, Employee, Device, DeviceLog
+from corporateAssetsTracker.api.serializers import CompanySerializer, EmployeeSerializer, DeviceSerializer, DeviceLogSerializer
 
 class CompanyList(generics.ListCreateAPIView):
     queryset = Company.objects.all()
