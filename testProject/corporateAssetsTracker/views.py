@@ -167,7 +167,7 @@ class DeviceLogDeleteView(DeleteView):
 # END--DeviceLog Model Related Functionalities
 
 
-# Here is the code for where "Each company able to see when a Device was checked out and returned"
+# START--Here is the code for where "Each company able to see when a Device was checked out and returned"
 class DeviceLogHistoryView(ListView):
     template_name = 'device_log_history.html'
     context_object_name = 'device_log_list'
@@ -187,7 +187,10 @@ class DeviceLogHistoryView(ListView):
         return context
 
 
-# Here is the code for where "Each device should have a log of what condition it was handed out and returned"
+# END--Here is the code for where "Each company able to see when a Device was checked out and returned"
+
+
+# START--Here is the code for where "Each device should have a log of what condition it was handed out and returned"
 
 class DeviceConditionLogCreateView(CreateView):
     model = DeviceConditionLog
@@ -224,3 +227,5 @@ class DeviceConditionLogDeleteView(DeleteView):
     model = DeviceConditionLog
     template_name = 'device_condition_log_confirm_delete.html'
     success_url = reverse_lazy('device_log_list')
+
+# END--Here is the code for where "Each device should have a log of what condition it was handed out and returned"
