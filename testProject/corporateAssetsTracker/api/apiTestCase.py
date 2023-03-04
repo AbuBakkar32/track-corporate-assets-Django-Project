@@ -31,21 +31,20 @@ class EmployeeSerializerTestCase(TestCase):
         """setup the common all of those instance,
                 value or data which need to test for every function"""
         self.company = Company.objects.create(name='ACME Corporation')
-        self.employee = Employee.objects.create(name='John Doe', email='johndoe@example.com', company=self.company)
+        self.employee = Employee.objects.create(name='Abu Bakkar', company=self.company)
 
     def test_employee_serialization(self):
         serializer = EmployeeSerializer(instance=self.employee)
-        expected_data = {'id': self.employee.id, 'name': 'John Doe', 'email': 'johndoe@example.com',
+        expected_data = {'id': self.employee.id, 'name': 'Abu Bakkar',
                          'company': {'id': self.company.id, 'name': 'ACME Corporation'}}
         self.assertEqual(serializer.data, expected_data)
 
     def test_employee_deserialization(self):
-        data = {'name': 'Jane Doe', 'email': 'janedoe@example.com', 'company': self.company.id}
+        data = {'name': 'Jane Doe', 'company': self.company.id}
         serializer = EmployeeSerializer(data=data)
         serializer.is_valid()
         employee = serializer.save()
-        self.assertEqual(employee.name, 'Jane Doe')
-        self.assertEqual(employee.email, 'janedoe@example.com')
+        self.assertEqual(employee.name, 'Abu Bakkar')
         self.assertEqual(employee.company, self.company)
 
 
@@ -78,7 +77,7 @@ class DeviceLogSerializerTestCase(TestCase):
         """setup the common all of those instance,
                 value or data which need to test for every function"""
         self.company = Company.objects.create(name='ACME Corporation')
-        self.employee = Employee.objects.create(name='John Smith', company=self.company)
+        self.employee = Employee.objects.create(name='Siddik Rakib', company=self.company)
         self.device = Device.objects.create(name='Macbook Pro', company=self.company, description='A laptop')
         self.device_log = DeviceLog.objects.create(employee=self.employee, device=self.device,
                                                    checked_out=datetime(2022, 1, 1, 12, 0, 0),
@@ -87,7 +86,7 @@ class DeviceLogSerializerTestCase(TestCase):
     def test_device_log_serialization(self):
         serializer = DeviceLogSerializer(instance=self.device_log)
         expected_data = {'id': self.device_log.id,
-                         'employee': {'id': self.employee.id, 'name': 'John Smith',
+                         'employee': {'id': self.employee.id, 'name': 'Siddik Rakib',
                                       'company': {'id': self.company.id, 'name': 'ACME Corporation'}},
                          'device': {'id': self.device.id, 'name': 'Macbook Pro',
                                     'company': {'id': self.company.id, 'name': 'ACME Corporation'},
