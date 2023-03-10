@@ -21,7 +21,7 @@
 ### Technologies Used
 * Python - 3.9.7
 * Django - 3.2.9
-* Django Test Framework - 3.14.0
+* Django Rest Framework - 3.14.0
 * MVT Architecture - 3.2.9 
 
 ### License
